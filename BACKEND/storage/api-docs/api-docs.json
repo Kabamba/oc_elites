@@ -1,0 +1,1525 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API pour OC elites du congo",
+        "description": "Oc elites du congo",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://elite.com/api"
+        }
+    ],
+    "paths": {
+        "/admin/admins/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEUR"
+                ],
+                "summary": "Liste des administrateurs",
+                "operationId": "70d159651ab1842498461cf31a7343ba",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/admins/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEUR"
+                ],
+                "summary": "Ajouter un administrateur",
+                "operationId": "82cb61d613d89b30f79428737c43ee6c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "0852277379"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/admins/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEUR"
+                ],
+                "summary": "Renvoie les informations d'un administrateur par son ID",
+                "operationId": "31681fa15426ac49b7e17ffd74f4351f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/admins/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEUR"
+                ],
+                "summary": "Editer les informations d'un administrateur",
+                "operationId": "b8366dfcf03e7f01de3503e2f111d91d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "0852277378"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "AUHTENTIFICATION"
+                ],
+                "summary": "Authentifie l'utilisateur avant de se connecter",
+                "description": "",
+                "operationId": "2dd578ff7aba2721293dac66833b27d1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "AUHTENTIFICATION"
+                ],
+                "summary": "Deconnexion de l'utilisateur",
+                "description": "",
+                "operationId": "68a6108af04af5e3bc1ea68a6c6f1299",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "token": {
+                                        "schema": "Bearer",
+                                        "type": "string",
+                                        "example": "89er4186gjazuihhiZIOJreioiouEIOJIOZERF814879AE8FEA"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/galeries/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__GALERIE"
+                ],
+                "summary": "Liste des images de la galérie",
+                "operationId": "6487a869027bfe413370da8ccfd9f05a",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/galeries/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__GALERIE"
+                ],
+                "summary": "Ajouter des images à la galérie",
+                "operationId": "4a40f7a9a7e03da124da037e1413c921",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "user": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "images[]": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/galeries/update/image": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__GALERIE"
+                ],
+                "summary": "Moofier une image dans la galérie",
+                "operationId": "236117eb29df1827df7e0829d0d6e6bf",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "image": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/galeries/delete/image": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__GALERIE"
+                ],
+                "summary": "Supprimer une photo liée à un évènement",
+                "operationId": "18d0a8c3ae32577ddf5a44cb17a8f4a6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/jerseys/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__MAILLOTS"
+                ],
+                "summary": "Liste des maillots",
+                "operationId": "04ca5cb733886eb4373c79540775336f",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/jerseys/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__MAILLOTS"
+                ],
+                "summary": "Ajouter un maillot",
+                "operationId": "078e4f5fdabbc2c376e9f82e31a04e62",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Maillot domicile"
+                                    },
+                                    "chemin": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/jerseys/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__MAILLOTS"
+                ],
+                "summary": "Renvoie les informations d'une jersey par son ID",
+                "operationId": "8b707598825dc3ca02c8555cd6307fa0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/jerseys/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__MAILLOTS"
+                ],
+                "summary": "Edite les informations d'une jersey",
+                "operationId": "9ddd3034c3a0ed5c64fbc8faf1231bbc",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Nike"
+                                    },
+                                    "chemin": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/jerseys/delete/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__MAILLOTS"
+                ],
+                "summary": "Supprime une jersey par son ID",
+                "operationId": "b64d5aeaddb0d46f8568c528f88812d4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/players/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__JOUEURS"
+                ],
+                "summary": "Liste des joueurs",
+                "operationId": "ec28ad77b942ea7502aa9e35b56ce09d",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/players/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__JOUEURS"
+                ],
+                "summary": "Ajouter un joueur",
+                "operationId": "1c33338fe7761ba07553a823d3652e31",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Enock"
+                                    },
+                                    "postnom": {
+                                        "type": "string",
+                                        "example": "Kabamba"
+                                    },
+                                    "date_naissance": {
+                                        "type": "date",
+                                        "example": "1998-02-18"
+                                    },
+                                    "lieu_naissance": {
+                                        "type": "string",
+                                        "example": "Mbuji-mayi"
+                                    },
+                                    "date_debut_carriere": {
+                                        "type": "date",
+                                        "example": "2010-08-10"
+                                    },
+                                    "date_signature": {
+                                        "type": "date",
+                                        "example": "2020-09-04"
+                                    },
+                                    "nationalite": {
+                                        "type": "string",
+                                        "example": "Congolaise"
+                                    },
+                                    "poids": {
+                                        "type": "float",
+                                        "example": 70
+                                    },
+                                    "taille": {
+                                        "type": "float",
+                                        "example": 189
+                                    },
+                                    "dorsale": {
+                                        "type": "integer",
+                                        "example": 9
+                                    },
+                                    "position": {
+                                        "type": "integer",
+                                        "example": 4
+                                    },
+                                    "descriptions": {
+                                        "type": "string",
+                                        "example": "Une description"
+                                    },
+                                    "cover": {
+                                        "type": "file"
+                                    },
+                                    "images[]": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/players/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__JOUEURS"
+                ],
+                "summary": "Renvoie les informations d'un joueur par son ID",
+                "operationId": "06f5d913416127b27827a677e8c7d88a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/players/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__JOUEURS"
+                ],
+                "summary": "Editer les informations d'un Joueur",
+                "operationId": "5b6f22ece3aed3b6751095913948c326",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Enock"
+                                    },
+                                    "postnom": {
+                                        "type": "string",
+                                        "example": "Kabamba"
+                                    },
+                                    "date_naissance": {
+                                        "type": "date",
+                                        "example": "1998-02-18"
+                                    },
+                                    "lieu_naissance": {
+                                        "type": "string",
+                                        "example": "Mbuji-mayi"
+                                    },
+                                    "date_debut_carriere": {
+                                        "type": "date",
+                                        "example": "2010-08-10"
+                                    },
+                                    "date_signature": {
+                                        "type": "date",
+                                        "example": "2020-09-04"
+                                    },
+                                    "nationalite": {
+                                        "type": "string",
+                                        "example": "Congolaise"
+                                    },
+                                    "poids": {
+                                        "type": "float",
+                                        "example": 70
+                                    },
+                                    "taille": {
+                                        "type": "float",
+                                        "example": 70
+                                    },
+                                    "dorsale": {
+                                        "type": "integer",
+                                        "example": 9
+                                    },
+                                    "position": {
+                                        "type": "integer",
+                                        "example": 4
+                                    },
+                                    "descriptions": {
+                                        "type": "string",
+                                        "example": "Une modif de la description"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/players/update/image": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__JOUEURS"
+                ],
+                "summary": "Moofier une photo liée à un évènement",
+                "operationId": "6901d3b0c918789d733075ba5a07a9eb",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "player_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "image": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/players/delete/image": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__JOUEURS"
+                ],
+                "summary": "Supprimer une photo liée à un évènement",
+                "operationId": "62e6d4d0d10a26c6f37168c6a44da186",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/posts/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__EVENEMENTS"
+                ],
+                "summary": "Liste des évènements",
+                "operationId": "e93c863caa634100590325b2bfff2803",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/posts/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__EVENEMENTS"
+                ],
+                "summary": "Ajouter un évènement",
+                "operationId": "65cf97fc6835798bd59ee2ceb01c7b80",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "titre": {
+                                        "type": "string",
+                                        "example": "Evangelisation"
+                                    },
+                                    "descriptions": {
+                                        "type": "string",
+                                        "example": "Andy Kasanda"
+                                    },
+                                    "user_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "cover": {
+                                        "type": "file"
+                                    },
+                                    "images[]": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/posts/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__EVENEMENTS"
+                ],
+                "summary": "Renvoie les informations d'un évènement par son ID",
+                "operationId": "b71295fbfc89400f547c1295507ae6bc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/posts/delete/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__EVENEMENTS"
+                ],
+                "summary": "Supprime un évènement par son ID",
+                "operationId": "b3dbc584fb2588fffd343e887f94bb97",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/posts/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__EVENEMENTS"
+                ],
+                "summary": "Editer les informations d'un évènement",
+                "operationId": "7c3adf142329901e99a0c1e59806a9da",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "titre": {
+                                        "type": "string",
+                                        "example": "Evangelisation"
+                                    },
+                                    "descriptions": {
+                                        "type": "string",
+                                        "example": "Une description"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/posts/delete/image": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__EVENEMENTS"
+                ],
+                "summary": "Supprimer une photo liée à un évènement",
+                "operationId": "fa813b811cbdba48a7e0378c70d7d0ab",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/posts/update/image": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__EVENEMENTS"
+                ],
+                "summary": "Moofier une photo liée à un évènement",
+                "operationId": "2932cc38775160ab05d4227470f7d243",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "post_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "image": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/rencontres/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RENCONTRES"
+                ],
+                "summary": "Liste des rencontres",
+                "operationId": "61db28d5c2145a7857eeb0bae55430b6",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/rencontres/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RENCONTRES"
+                ],
+                "summary": "Ajouter une rencontre",
+                "operationId": "667fc7f41c5bad02d84e6f21e92d2e7b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "team_home_name": {
+                                        "type": "string",
+                                        "example": "Real madrid"
+                                    },
+                                    "team_away_name": {
+                                        "type": "string",
+                                        "example": "FC barcelone"
+                                    },
+                                    "team_home_logo": {
+                                        "type": "file"
+                                    },
+                                    "team_away_logo": {
+                                        "type": "file"
+                                    },
+                                    "team_home_score": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "team_away_score": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "date_rencontre": {
+                                        "type": "date",
+                                        "example": "2020-09-04"
+                                    },
+                                    "user": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/rencontres/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RENCONTRES"
+                ],
+                "summary": "Renvoie les informations d'une rencontre par son ID",
+                "operationId": "961d53fa18c672424d61040a8e272446",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/rencontres/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RENCONTRES"
+                ],
+                "summary": "Edite les informations d'une rencontre",
+                "operationId": "71eeeaec9980d97614721ec6ace7ae35",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "team_home_name": {
+                                        "type": "string",
+                                        "example": "Real madrid"
+                                    },
+                                    "team_away_name": {
+                                        "type": "string",
+                                        "example": "FC barcelone"
+                                    },
+                                    "team_home_logo": {
+                                        "type": "file"
+                                    },
+                                    "team_away_logo": {
+                                        "type": "file"
+                                    },
+                                    "team_home_score": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "team_away_score": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "date_rencontre": {
+                                        "type": "date",
+                                        "example": "2020-09-04"
+                                    },
+                                    "user": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/rencontres/delete/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RENCONTRES"
+                ],
+                "summary": "Supprime une rencontre par son ID",
+                "operationId": "68f79124b853fc40413e6ff52875f55f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/sponsors/list": {
+            "get": {
+                "tags": [
+                    "sponsorADMINISTRATION__SPONSORS"
+                ],
+                "summary": "Liste des sponsors",
+                "operationId": "3e20ce6f99b02de5786a537e9bd94ca6",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/sponsors/store": {
+            "post": {
+                "tags": [
+                    "sponsorADMINISTRATION__SPONSORS"
+                ],
+                "summary": "Ajouter une sponsor",
+                "operationId": "d786fc95a4c37520bfe6f9bd368e592b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Adidas"
+                                    },
+                                    "chemin": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/sponsors/show/{id}": {
+            "get": {
+                "tags": [
+                    "sponsorADMINISTRATION__SPONSORS"
+                ],
+                "summary": "Renvoie les informations d'une sponsor par son ID",
+                "operationId": "9c90f3d9589a605c02ab8c4f62e0bf37",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/sponsors/update": {
+            "post": {
+                "tags": [
+                    "sponsorADMINISTRATION__SPONSORS"
+                ],
+                "summary": "Edite les informations d'une sponsor",
+                "operationId": "38b5ca2622ae815b997996338fa74198",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Nike"
+                                    },
+                                    "chemin": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/sponsors/delete/{id}": {
+            "get": {
+                "tags": [
+                    "sponsorADMINISTRATION__SPONSORS"
+                ],
+                "summary": "Supprime une sponsor par son ID",
+                "operationId": "d67baa90c36455486f41da1e372b43d4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stafs/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__STAFS"
+                ],
+                "summary": "Liste des stafs",
+                "operationId": "f5cbf66a84cc0a7ec9acd37772d0f55b",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stafs/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__STAFS"
+                ],
+                "summary": "Ajouter un staf",
+                "operationId": "23a9353d0702a4d5a9c0b5db8056cd19",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Enock"
+                                    },
+                                    "postnom": {
+                                        "type": "string",
+                                        "example": "Kabamba"
+                                    },
+                                    "date_naissance": {
+                                        "type": "date",
+                                        "example": "1998-02-18"
+                                    },
+                                    "lieu_naissance": {
+                                        "type": "string",
+                                        "example": "Mbuji-mayi"
+                                    },
+                                    "date_debut_carriere": {
+                                        "type": "date",
+                                        "example": "2010-08-10"
+                                    },
+                                    "date_signature": {
+                                        "type": "date",
+                                        "example": "2020-09-04"
+                                    },
+                                    "nationalite": {
+                                        "type": "string",
+                                        "example": "Congolaise"
+                                    },
+                                    "attribution": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "descriptions": {
+                                        "type": "string",
+                                        "example": "Une description"
+                                    },
+                                    "cover": {
+                                        "type": "file"
+                                    },
+                                    "images[]": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stafs/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__STAFS"
+                ],
+                "summary": "Renvoie les informations d'un staf par son ID",
+                "operationId": "655fc5ae94b447f573d298587883a68b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stafs/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__STAFS"
+                ],
+                "summary": "Editer les informations d'un staf",
+                "operationId": "1a393dc94ede2a56dc30995c00cf5a9b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Enock"
+                                    },
+                                    "postnom": {
+                                        "type": "string",
+                                        "example": "Kabamba"
+                                    },
+                                    "date_naissance": {
+                                        "type": "date",
+                                        "example": "1998-02-18"
+                                    },
+                                    "lieu_naissance": {
+                                        "type": "string",
+                                        "example": "Mbuji-mayi"
+                                    },
+                                    "date_debut_carriere": {
+                                        "type": "date",
+                                        "example": "2010-08-10"
+                                    },
+                                    "date_signature": {
+                                        "type": "date",
+                                        "example": "2020-09-04"
+                                    },
+                                    "nationalite": {
+                                        "type": "string",
+                                        "example": "Congolaise"
+                                    },
+                                    "attribution": {
+                                        "type": "integer",
+                                        "example": 4
+                                    },
+                                    "descriptions": {
+                                        "type": "string",
+                                        "example": "Une modif de la description"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stafs/update/image": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__STAFS"
+                ],
+                "summary": "Moofier une photo liée à un évènement",
+                "operationId": "125543481dfa7432a0e9ff826ed523f9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "staf_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "image": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stafs/delete/image": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__STAFS"
+                ],
+                "summary": "Supprimer une photo liée à un évènement",
+                "operationId": "e827009d4e338005c358eaa785309251",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": [
+            []
+        ]
+    }
+}

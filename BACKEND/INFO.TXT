@@ -1,0 +1,23 @@
+TRANSACTION_TYPE : 
+ * 1 = Depôt_compte_gabon
+ * 2 = Depôt_compte_rdc
+ * 3 = Transfert_compte_rdc_rdc
+ * 4 = Transfert_mobileMoney_rdc
+ * 5 = Transfert_compte_rdc_gabon
+ * 6 = Transfert_compte_gabon_gabon
+ * 7 = Transfert_mobileMoney_gabon_rdc
+ * 8 = Transfert_compte_gabon_rdc
+ * 9 = Retrait_rdc
+
+STATUS_TRANSACTION : 
+ * 0 = En cours
+ * 1 = Valide
+ * 2 = Invalide
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=enockmulamba1802@gmail.com
+MAIL_PASSWORD=wiziswag05
+MAIL_ENCRYPTION=tls
+MAIL_FROM_NAME="Base_Project_App"
